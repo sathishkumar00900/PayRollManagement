@@ -1,5 +1,6 @@
 package dao;
 
+import config.DBConnection;
 import model.Employee;
 import model.User;
 

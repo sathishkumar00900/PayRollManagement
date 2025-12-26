@@ -1,6 +1,7 @@
 package controller;
 
 import com.google.gson.Gson;
+import dao.DaoClass;
 import model.User;
 
 import javax.servlet.annotation.WebServlet;

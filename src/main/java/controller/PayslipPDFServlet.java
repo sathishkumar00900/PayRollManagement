@@ -3,6 +3,7 @@ package controller;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import dao.DaoClass;
 import model.Employee;
 
 import javax.servlet.annotation.WebServlet;
