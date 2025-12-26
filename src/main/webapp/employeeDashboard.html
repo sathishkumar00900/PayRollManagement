@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: linear-gradient(135deg, #e3ecf7, #f5f8fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-card {
+            background: #ffffff;
+            width: 420px;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.1),
+                0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .dashboard-card h2 {
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .dashboard-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .view-btn {
+            border: none;
+            padding: 14px 30px;
+            border-radius: 6px;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            color: #ffffff;
+
+            background: linear-gradient(to right, #4a90e2, #5fa8ff);
+
+            box-shadow: 0 4px 0 #3b78c2;
+            transition: all 0.2s ease;
+        }
+
+        .view-btn:hover {
+            background: linear-gradient(to right, #5fa8ff, #6bb1ff);
+        }
+
+        .view-btn:active {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard-card">
+    <h2 id="welcome">Welcome</h2>
+    <p>Access your salary details and payslip information</p>
+
+    <button class="view-btn" onclick="viewPayslip()">
+        View Payslip
+    </button>
+</div>
+
+<script>
+    fetch("getPayslip")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("welcome").innerText =
+                "Welcome, " + data.username;
+        });
+
+    function viewPayslip() {
+        window.location.href = "payslip.html";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payslip</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: linear-gradient(135deg, #e3ecf7, #f5f8fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .payslip-card {
+            background: #ffffff;
+            width: 520px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.1),
+                0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .payslip-header {
+            background: linear-gradient(to right, #4a90e2, #5fa8ff);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .payslip-header h2 {
+            margin: 0;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .payslip-body {
+            padding: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 14px 12px;
+            font-size: 15px;
+        }
+
+        th {
+            text-align: left;
+            color: #555;
+            font-weight: 600;
+            width: 45%;
+        }
+
+        td {
+            text-align: right;
+            color: #333;
+            font-weight: 500;
+        }
+
+        tr:not(:last-child) {
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        .gross-row {
+            background: #f3f8ff;
+            font-size: 16px;
+        }
+
+        .gross-row th,
+        .gross-row td {
+            color: #2d6cdf;
+            font-weight: 700;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="payslip-card">
+
+    <div class="payslip-header">
+        <h2>Employee Payslip</h2>
+        <button onclick="window.location.href='downloadPayslip'">
+            Download PDF
+        </button>
+
+    </div>
+
+    <div class="payslip-body">
+        <table>
+            <tr>
+                <th>Employee Name</th>
+                <td id="name"></td>
+            </tr>
+            <tr>
+                <th>Base Salary</th>
+                <td id="base"></td>
+            </tr>
+            <tr>
+                <th>HRA</th>
+                <td id="hra"></td>
+            </tr>
+            <tr>
+                <th>DA</th>
+                <td id="da"></td>
+            </tr>
+            <tr class="gross-row">
+                <th>Gross Salary</th>
+                <td id="gross"></td>
+            </tr>
+        </table>
+
+        <div class="footer-note">
+            This is a system generated payslip
+        </div>
+    </div>
+</div>
+
+<script>
+    fetch("getPayslip")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("name").innerText = data.username;
+            document.getElementById("base").innerText = + data.baseSalary;
+            document.getElementById("hra").innerText = + data.hra;
+            document.getElementById("da").innerText = + data.da;
+            document.getElementById("gross").innerText =  + data.gross;
+        });
+</script>
+
+</body>
+</html>
