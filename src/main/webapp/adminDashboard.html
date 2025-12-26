@@ -174,7 +174,7 @@
     <div class="modal-content">
         <span class="close" onclick="closeProfile()">&times;</span>
 
-        <h3>User Details</h3>
+        <h3>model.User Details</h3>
 
         <input type="hidden" id="userId">
 
@@ -247,7 +247,7 @@
         mode = "ADD";
         selectedUser = null;
 
-        document.querySelector(".modal-content h3").innerText = "Add User";
+        document.querySelector(".modal-content h3").innerText = "Add model.User";
         userId.value = "";
         userName.value = "";
         userEmail.value = "";
@@ -259,7 +259,7 @@
     function openProfile() {
         mode = "EDIT";
 
-        document.querySelector(".modal-content h3").innerText = "Edit User";
+        document.querySelector(".modal-content h3").innerText = "Edit model.User";
 
         userId.value = selectedUser.id;
         userName.value = selectedUser.name;
@@ -303,7 +303,7 @@
             body: JSON.stringify(user)
         }).then(res => {
             if (res.ok) {
-                alert(mode === "ADD" ? "User added successfully" : "User updated successfully");
+                alert(mode === "ADD" ? "model.User added successfully" : "model.User updated successfully");
                 location.reload();
             } else {
                 alert("Operation failed");
@@ -322,7 +322,7 @@
                 method: "DELETE"
             }).then(res => {
                 if (res.ok) {
-                    alert("User deleted successfully");
+                    alert("model.User deleted successfully");
                     location.reload();
                 } else {
                     alert("Delete failed");

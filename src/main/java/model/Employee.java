@@ -1,3 +1,5 @@
+package model;
+
 public class Employee {
     private String username;
     private double baseSalary;

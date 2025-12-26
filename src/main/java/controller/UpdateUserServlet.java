@@ -1,4 +1,7 @@
+package controller;
+
 import com.google.gson.Gson;
+import model.User;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,10 +28,10 @@ public class UpdateUserServlet extends HttpServlet {
 
         if (updated) {
             res.setStatus(HttpServletResponse.SC_OK);
-            res.getWriter().write("{\"message\":\"User updated successfully\"}");
+            res.getWriter().write("{\"message\":\"model.User updated successfully\"}");
         } else {
             res.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            res.getWriter().write("{\"message\":\"User not found or no changes made\"}");
+            res.getWriter().write("{\"message\":\"model.User not found or no changes made\"}");
         }
     }
 }

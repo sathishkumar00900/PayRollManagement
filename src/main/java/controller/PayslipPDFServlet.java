@@ -1,6 +1,10 @@
+package controller;
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import model.Employee;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,9 +42,9 @@ public class PayslipPDFServlet extends HttpServlet {
 
             document.open();
 
-            document.add(new Paragraph("Employee Payslip"));
+            document.add(new Paragraph("model.Employee Payslip"));
             document.add(new Paragraph(" "));
-            document.add(new Paragraph("Employee Name : " + emp.getUsername()));
+            document.add(new Paragraph("model.Employee Name : " + emp.getUsername()));
             document.add(new Paragraph("Base Salary  : " + emp.getBaseSalary()));
             document.add(new Paragraph("HRA          : " + emp.getHra()));
             document.add(new Paragraph("DA           : " + emp.getDa()));

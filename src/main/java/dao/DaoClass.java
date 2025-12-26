@@ -1,3 +1,8 @@
+package dao;
+
+import model.Employee;
+import model.User;
+
 import java.sql.*;
 import java.util.*;
 

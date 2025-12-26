@@ -1,3 +1,7 @@
+package controller;
+
+import model.Employee;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;

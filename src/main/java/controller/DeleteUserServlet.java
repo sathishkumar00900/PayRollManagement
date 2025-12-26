@@ -1,3 +1,5 @@
+package controller;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,10 +21,10 @@ public class DeleteUserServlet extends HttpServlet {
 
         if (deleted) {
             res.setStatus(HttpServletResponse.SC_OK);
-            res.getWriter().write("{\"message\":\"User deleted successfully\"}");
+            res.getWriter().write("{\"message\":\"model.User deleted successfully\"}");
         } else {
             res.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            res.getWriter().write("{\"message\":\"User not found\"}");
+            res.getWriter().write("{\"message\":\"model.User not found\"}");
         }
     }
 }
