@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>model.Employee Dashboard</title>
+    <title>Employee Dashboard</title>
 
     <style>
         body {
@@ -80,7 +80,7 @@
         .then(res => res.json())
         .then(data => {
             document.getElementById("welcome").innerText =
-                "Welcome, " + data.username;
+                "Welcome " + data.username;
         });
 
     function viewPayslip() {

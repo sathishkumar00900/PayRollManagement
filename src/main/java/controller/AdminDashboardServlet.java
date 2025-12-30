@@ -1,9 +1,7 @@
 package controller;
-
 import com.google.gson.Gson;
 import dao.DaoClass;
-import model.User;
-
+import model.Employee;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +14,7 @@ public class AdminDashboardServlet extends HttpServlet {
     public void doGet (HttpServletRequest req, HttpServletResponse res) throws IOException {
         res.setContentType("application/json");
         res.setCharacterEncoding("UTF-8");
-
-        List<User> users = null;
+        List<Employee> users = null;
         try {
             users = new DaoClass().getAllUsers();
         } catch (Exception e) {

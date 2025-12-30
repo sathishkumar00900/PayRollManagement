@@ -2,7 +2,6 @@ package controller;
 
 import dao.DaoClass;
 import model.Employee;
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -21,10 +20,13 @@ public class EmployeePayslipServlet extends HttpServlet {
         }
 
         String username = session.getAttribute("username").toString();
-
         DaoClass dao = new DaoClass();
         Employee emp = dao.getEmployeeByUsername(username);
 
+        if (emp == null) {
+            res.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            return;
+        }
         double gross = emp.getBaseSalary() + emp.getHra() + emp.getDa();
 
         res.setContentType("application/json");

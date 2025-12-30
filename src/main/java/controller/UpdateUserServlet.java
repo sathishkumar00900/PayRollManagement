@@ -2,7 +2,8 @@ package controller;
 
 import com.google.gson.Gson;
 import dao.DaoClass;
-import model.User;
+import model.Employee;
+
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +23,7 @@ public class UpdateUserServlet extends HttpServlet {
 
         Gson gson = new Gson();
         BufferedReader reader = req.getReader();
-        User user = gson.fromJson(reader, User.class);
+        Employee user = gson.fromJson(reader, Employee.class);
 
         DaoClass dao = new DaoClass();
         boolean updated = dao.updateUser(user);

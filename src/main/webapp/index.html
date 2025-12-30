@@ -2,168 +2,235 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Payroll Management System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll Management System - Login</title>
 
     <style>
         * {
             margin: 0;
             padding: 0;
-<!--            box-sizing: border-box;-->
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
         }
 
+        /* ===== Base ===== */
         body {
-            background: #29bdc1;
-            color: #222;
-        }
-
-
-        header {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 18px 60px;
-            background: white;
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 700;
-            color: #e94b35;
-        }
-
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .btn {
-            padding: 10px 18px;
-            border-radius: 6px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #e94b35;
-            color: #e94b35;
-        }
-
-        .btn-primary {
-            background: #e94b35;
-            color: white;
-        }
-
-
-        .hero {
-            text-align: center;
-            padding: 90px 20px 70px;
-            background: linear-gradient(180deg, #fff7f3, #ffffff);
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #555;
-            max-width: 700px;
-            margin: auto;
-            line-height: 1.6;
-        }
-
-        .hero-actions {
-            margin-top: 35px;
-        }
-
-        .hero-actions a {
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-
-        .features {
-            padding: 80px 60px;
-            background: #ffffff;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 50px;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .feature-card h3 {
-            margin-bottom: 12px;
-            color: #e94b35;
-        }
-
-        .feature-card p {
-            color: #555;
-            line-height: 1.6;
-        }
-
-
-        .cta {
-            padding: 70px 20px;
-            background: #e94b35;
-            text-align: center;
-            color: white;
-        }
-
-        .cta h2 {
-            font-size: 34px;
-            margin-bottom: 15px;
-        }
-
-        .cta p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-
-        footer {
-            text-align: center;
+            background: #121212;
             padding: 20px;
-            background: #111;
-            color: #bbb;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Soft overlay for clarity */
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(0,0,0,0.65), rgba(0,0,0,0.45));
+            z-index: 1;
+        }
+
+        /* ===== Background Shapes ===== */
+        .shape {
+            position: absolute;
+            opacity: 0.08;
+            filter: blur(2px);
+            z-index: 2;
+        }
+
+        .circle1 {
+            width: 300px;
+            height: 300px;
+            background: #e94b35;
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+        }
+
+        .circle2 {
+            width: 150px;
+            height: 150px;
+            background: #e94b35;
+            border-radius: 50%;
+            bottom: 10%;
+            right: 5%;
+        }
+
+        .circle3 {
+            width: 250px;
+            height: 250px;
+            background: #f4b93e;
+            border-radius: 50%;
+            top: 50%;
+            left: 10%;
+        }
+
+        .circle4 {
+            width: 180px;
+            height: 180px;
+            background: #f4b93e;
+            border-radius: 50%;
+            top: 10%;
+            left: 40%;
+        }
+
+        .circle5 {
+            width: 100px;
+            height: 100px;
+            background: #3a87ad;
+            border-radius: 50%;
+            bottom: 35%;
+            left: 5%;
+        }
+
+        .square1 {
+            width: 200px;
+            height: 200px;
+            background: #3a87ad;
+            transform: rotate(45deg);
+            top: 15%;
+            right: -50px;
+        }
+
+        .square2 {
+            width: 120px;
+            height: 120px;
+            background: #3a87ad;
+            transform: rotate(25deg);
+            bottom: -30px;
+            left: 20%;
+        }
+
+        .square3 {
+            width: 180px;
+            height: 180px;
+            background: #4caf50;
+            transform: rotate(30deg);
+            bottom: 20%;
+            right: 25%;
+        }
+
+        .square4 {
+            width: 140px;
+            height: 140px;
+            background: #4caf50;
+            border-radius: 50%;
+            top: 30%;
+            right: 10%;
+        }
+
+        .square5 {
+            width: 160px;
+            height: 160px;
+            background: #e94b35;
+            transform: rotate(15deg);
+            top: 60%;
+            right: 15%;
+        }
+
+        /* ===== Login Container ===== */
+        .login-container {
+            background: linear-gradient(180deg, #1f1f1f, #181818);
+            padding: 55px 45px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+            position: relative;
+            z-index: 3;
+        }
+
+        /* ===== Logo Section ===== */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo-section h1 {
+            font-size: 28px;
+            color: #ffffff;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-section::after {
+            content: "";
+            width: 60px;
+            height: 4px;
+            background: #e94b35;
+            display: block;
+            margin: 15px auto 0;
+            border-radius: 10px;
+        }
+
+        /* ===== Form ===== */
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #dddddd;
+            font-weight: 600;
             font-size: 14px;
         }
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-            }
-            .hero h1 {
-                font-size: 36px;
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px 18px;
+            background: #252525;
+            border: 2px solid #3a3a3a;
+            border-radius: 12px;
+            font-size: 15px;
+            color: #ffffff;
+            transition: all 0.3s;
+        }
+
+        input::placeholder {
+            color: #999999;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #e94b35;
+            box-shadow: 0 0 0 3px rgba(233, 75, 53, 0.25);
+        }
+
+        /* ===== Button ===== */
+        .signin-btn {
+            width: 100%;
+            padding: 16px;
+            background: #e94b35;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 35px rgba(233, 75, 53, 0.35);
+        }
+
+        .signin-btn:hover {
+            transform: translateY(-2px);
+            background: #d43d28;
+        }
+
+        .signin-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 40px 30px;
             }
         }
     </style>
@@ -171,78 +238,37 @@
 
 <body>
 
+<div class="shape circle1"></div>
+<div class="shape circle2"></div>
+<div class="shape circle3"></div>
+<div class="shape circle4"></div>
+<div class="shape circle5"></div>
 
-<header>
-    <div class="logo">Payroll Management</div>
-    <nav>
-        <a href="login.html" class="btn btn-outline">Sign In</a>
-        <a href="signup.html" class="btn btn-primary">Sign Up</a>
-    </nav>
-</header>
+<div class="shape square1"></div>
+<div class="shape square2"></div>
+<div class="shape square3"></div>
+<div class="shape square4"></div>
+<div class="shape square5"></div>
 
-
-<section class="hero">
-    <h1>Payroll made easy, scalable & secure</h1>
-    <p>
-        Manage employee salaries, attendance, deductions, and payroll reports
-        with a simple and reliable Payroll Management System.
-    </p>
-
-    <div class="hero-actions">
-        <a href="employeeLogin.html" class="btn btn-primary">Get Started</a>
-        <a href="login.html" class="btn btn-outline">Already have an account?</a>
+<div class="login-container">
+    <div class="logo-section">
+        <h1>Payroll Management</h1>
     </div>
-</section>
 
-
-<section class="features">
-    <h2>What Our Application Does</h2>
-
-    <div class="feature-grid">
-        <div class="feature-card">
-            <h3>model.Employee Management</h3>
-            <p>
-                Add, update, and manage employee details with ease from a
-                centralized dashboard.
-            </p>
+    <form action="login" method="get">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
         </div>
 
-        <div class="feature-card">
-            <h3>Payroll Processing</h3>
-            <p>
-                Automatically calculate salaries, deductions, and net pay
-                accurately every month.
-            </p>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
         </div>
 
-        <div class="feature-card">
-            <h3>Attendance Tracking</h3>
-            <p>
-                Track employee attendance and leave details to ensure correct
-                payroll calculations.
-            </p>
-        </div>
-
-        <div class="feature-card">
-            <h3>Secure Admin Dashboard</h3>
-            <p>
-                Role-based access with secure login for admins and employees.
-            </p>
-        </div>
-    </div>
-</section>
-
-
-<section class="cta">
-    <h2>Start managing payroll smarter</h2>
-    <p>Join today and simplify your payroll process.</p>
-    <a href="signup.html" class="btn btn-primary">Create Free Account</a>
-</section>
-
-
-<footer>
-    © 2025 Payroll Management System | All Rights Reserved
-</footer>
+        <button type="submit" class="signin-btn">Sign In</button>
+    </form>
+</div>
 
 </body>
 </html>

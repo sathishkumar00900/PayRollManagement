@@ -1,8 +1,7 @@
 package controller;
-
 import com.google.gson.Gson;
 import dao.DaoClass;
-import model.User;
+import model.Employee;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +18,10 @@ public class AddUserServlet extends HttpServlet {
         res.setContentType("application/json");
 
         Gson gson = new Gson();
-        User user = gson.fromJson(req.getReader(), User.class);
+        Employee emp = gson.fromJson(req.getReader(), Employee.class);
 
         DaoClass dao = new DaoClass();
-        boolean added = dao.addUser(user);
+        boolean added = dao.addUser(emp);
 
         if (added) {
             res.setStatus(HttpServletResponse.SC_CREATED);
