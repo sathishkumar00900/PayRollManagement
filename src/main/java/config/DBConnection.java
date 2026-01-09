@@ -9,7 +9,21 @@ public class DBConnection {
         Connection con = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PayRollManagement", "root", "1111");
+            String url = System.getenv("DB_URL");
+            String user = System.getenv("DB_USER");
+            String password = System.getenv("DB_PASSWORD");
+
+            if (url == null || url.isEmpty()) {
+                url = "jdbc:mysql://localhost:3306/PayRollManagement";
+            }
+            if (user == null || user.isEmpty()) {
+                user = "root";
+            }
+            if (password == null || password.isEmpty()) {
+                password = "1111";
+            }
+
+            con = DriverManager.getConnection(url, user, password);
         } catch (Exception e) {
             e.printStackTrace();
         }
